@@ -7,7 +7,7 @@ addons:
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: Simplifiez la gestion de vos environnements de développement avec devenv !
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
@@ -31,7 +31,6 @@ overviewSnapshots: true
 
 
 ---
-transition: fade-out
 layout: center
 class: text-center
 ---
@@ -41,49 +40,105 @@ class: text-center
 <v-clicks>
 
 - Readme.md de 873 lignes pour l'install compatible uniquement debian 6
-- Machine virtuelle fournie par l'équipe infra  
-
-TODO: image de souffrance
+- Machine virtuelle fournie par l'équipe infra
 
 </v-clicks>
 
 ---
-transition: fade-out
+layout: image
+
+image: img/cry.gif
+backgroundSize: contain
+---
+
+
+
+---
 layout: center
 class: text-center
 ---
 
 # Il y a un peu moins longtemps
 
-  rvm, nvm, pyenv, ...
+rvm, nvm, pyenv, ...
 
-TODO: image content, mais ensuite immage boudeur car demande quand même d'installer les services
+<v-clicks>
+
+- On peut enfin avoir plusieurs version de langages sur sa machine !
+- Mais on doit encore gérer les dépendances système, les services (postgres, redis, ...).
+
+</v-clicks>
+
 
 ---
-transition: fade-out
+layout: image
+
+image: img/noice.gif
+backgroundSize: contain
+---
+
+---
 layout: center
 class: text-center
 ---
 
 # Maintenant
-LOGO docker 
 
-TODO: image content: (reproductible, léger, 
 
-image pour "et si on pouvait faire mieux ?"
+<div class="flex justify-center">
+  <img class="w-64 h-auto" src="./img/docker-logo-blue.png" />
+</div>
+
+<v-clicks>
+
+- On isole les dépendances sans avoir à sacrifier les performances 
+- On peut piocher dans tout un catalogue d'image préconfigurée pour démarer rapidement
+- On peut se baser sur celles ci si besoin de configurer plus d'éléments
+- On orchestre tout ça avec docker-compose
+</v-clicks>
+
 
 
 ---
-transition: fade-out
+layout: image
+
+image: img/head-explosion.gif
+backgroundSize: contain
 ---
 
-Loïc BOURG
-Lead technique ITNetwork
-
-TODO: logo ITN
 
 ---
-transition: fade-out
+layout: center
+class: text-center
+---
+
+
+- On isole les dépendances <span v-mark.crossed-off.red >sans avoir à sacrifier les performances</span> <v-click>(coucou mac 👋)</v-click> 
+<v-clicks> 
+- Problématiques lorsque certains outils s'attendent à avoir plusieurs runtime disponible
+- On se retrouve à écrire nos commandes dans un shell tout moche alors qu'on a tuné notre .(bash|zsh)rc pour qu'il corresponde exactement à nos besoins
+- On écrit notre besoin (impératif) au lieu de le décrire (déclaratif)
+
+</v-clicks> 
+
+
+---
+layout: image
+
+image: img/what-if.png
+backgroundSize: contain
+---
+
+---
+---
+
+<img src="./img/logo-itn.svg" >
+
+
+- Loïc BOURG
+- Lead technique ITNetwork
+
+---
 ---
 
 ```nix
@@ -99,13 +154,11 @@ transition: fade-out
 ```
 
 ---
-transition: fade-out
 ---
 
-<Asciinema src="casts/test.cast" />
+<Asciinema src="casts/test.cast" :playerProps="{speed: 2, rows: 18}" />
 
 ---
-transition: fade-out
 ---
 
 ````md magic-move {lines: true}
