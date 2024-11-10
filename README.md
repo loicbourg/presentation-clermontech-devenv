@@ -13,7 +13,7 @@ https://docs.google.com/document/d/1AP0Ok4jNUw8dFdDdnH5U3YoUhTcTb6E2089Ivcsu8-0/
 - [ ] Problématique de l'outil + outil alternatif
 - [ ] conclusion + outils alternatif
 - [ ] pour aller plus loin
-- [ ] questions
+- [x] questions
 - [ ] couper fin des vidéos
-- [ ] refaire les premiers en videos
+- [x] refaire les premiers en videos
 - [ ] image de fond premiere slide

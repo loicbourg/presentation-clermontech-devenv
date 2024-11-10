@@ -172,7 +172,7 @@ layout: two-cols
 ---
 ---
 
-<Asciinema src="casts/javascript.cast" :playerProps="{speed: 2}" />
+<video controls src="./video/node.webm" />
 
 ---
 ---
@@ -211,7 +211,7 @@ layout: two-cols
 ---
 ---
 
-<Asciinema src="casts/ruby.cast" :playerProps="{speed: 2}" />
+<video controls src="./video/ruby.webm" />
 
 ---
 ---
@@ -233,6 +233,11 @@ image: img/pure2.png
 backgroundSize: contain
 ---
 
+---
+layout: image
+image: img/pure11.png
+backgroundSize: contain
+---
 
 ---
 ---
@@ -341,18 +346,79 @@ backgroundSize: contain
 ---
 ---
 
+````md magic-move {lines: true}
+
+```nix
+# devenv.nix
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  languages.javascript = {
+    enable = true;
+    package = pkgs.nodejs_20;
+  };
+
+  languages.ruby =  {
+    enable = true;
+    package = pkgs.ruby_3_3;
+  };
+
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+  processes.node-http-server = {
+    exec = "node server.js";
+  }
+}
+```
+
+```nix
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  languages.javascript = {
+    enable = true;
+    package = pkgs.nodejs_20;
+  };
+
+  languages.ruby =  {
+    enable = true;
+    package = pkgs.ruby_3_3;
+  };
+
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+  processes.node-http-server = {
+    exec = "node server.js";
+  }
+
+  
+}
+```
+
+
+
+````
+
+---
+---
+
 <video controls src="./video/node-server.webm" />
 
 ---
-layout: two-cols-header
+layout: two-cols
 ---
 
-
-# Conclusion
-
-::left::
 ## Avantages
-- Déclaratif
+<v-clicks>
+
+- <span v-mark.underline.green >Déclaratif</span>
+- <span v-mark.underline.green > Reproductible </span>
 - Beaucoup de langages (54) et services (32) supportés 
 - Isolé tout en restant sur sa machine
 - Compatible linux + mac
@@ -360,13 +426,22 @@ layout: two-cols-header
 - Facile à utiliser
 - Rapide 
 
+</v-clicks>
+
 ::right::
+
+<v-click>
+
 ## Problématiques
+
+</v-click>
+<v-clicks>
 
 - Outil assez récent (réécriture en rust en mars 2024)
 - Communauté nix fragmentée
-- Peu nécessiter d'apprendre nix si on sort du cas d'usage 
+- Peu nécessiter d'apprendre nix si on sort des cas d'usage 
 
+</v-clicks>
 
 ---
 layout: center
