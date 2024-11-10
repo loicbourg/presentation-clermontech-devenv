@@ -1,4 +1,20 @@
+
 # Presentation devenv clermontech
+
+## Installation
+
+```bash
+yarn
+```
+
+
+## Usage
+
+```bash
+yarn run dev
+```
+
+## Plan
 
 https://docs.google.com/document/d/1AP0Ok4jNUw8dFdDdnH5U3YoUhTcTb6E2089Ivcsu8-0/edit?tab=t.0
 

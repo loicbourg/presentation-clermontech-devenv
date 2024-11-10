@@ -28,11 +28,6 @@ layout: center
 class: text-center
 ---
 
----
-layout: center
-class: text-center
----
-
 # Il y a bien longtemps
 
 <v-clicks>
