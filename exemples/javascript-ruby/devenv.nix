@@ -1,15 +1,13 @@
-// #region snippet
 { pkgs, lib, config, inputs, ... }:
 
 {
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_18;
   };
 
   languages.ruby =  {
     enable = true;
-    package = pkgs.ruby_3_1;
-  }
+    package = pkgs.ruby_3_3;
+  };
 }
-// #endregion snippet

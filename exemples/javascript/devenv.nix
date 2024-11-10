@@ -1,10 +1,8 @@
-#region snippet
 { pkgs, lib, config, inputs, ... }:
 
 {
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_18;
   };
 }
-#endregion snippet

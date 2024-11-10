@@ -66,6 +66,7 @@ rvm, nvm, pyenv, ...
 
 - On peut enfin avoir plusieurs version de langages sur sa machine !
 - Mais on doit encore gérer les dépendances système, les services (postgres, redis, ...).
+- Et il faut installer le gestionnaire de version pour chaque langage
 
 </v-clicks>
 
@@ -114,7 +115,8 @@ class: text-center
 
 
 - On isole les dépendances <span v-mark.crossed-off.red >sans avoir à sacrifier les performances</span> <v-click>(coucou mac 👋)</v-click> 
-<v-clicks> 
+<v-clicks>
+
 - Problématiques lorsque certains outils s'attendent à avoir plusieurs runtime disponible
 - On se retrouve à écrire nos commandes dans un shell tout moche alors qu'on a tuné notre .(bash|zsh)rc pour qu'il corresponde exactement à nos besoins
 - On écrit notre besoin (impératif) au lieu de le décrire (déclaratif)
@@ -125,21 +127,35 @@ class: text-center
 ---
 layout: image
 
-image: img/what-if.png
+image: img/what-if.jpg
 backgroundSize: contain
 ---
 
 ---
+layout: two-cols
 ---
 
-<img src="./img/logo-itn.svg" >
+<div class="flex items-center" >
 
 
-- Loïc BOURG
-- Lead technique ITNetwork
+# Loïc BOURG
+
+</div>
+
+
+## Lead technique
+
+<img class="mr-20"  src="./img/logo-itn.svg">
+
+::right::
+
+<img src="./img/symfony_white_03.png" class="max-h-[20%]" >
+<img src="./img/react.png" class="max-h-[20%]" 
 
 ---
 ---
+
+
 
 ```nix
 # devenv.nix
@@ -148,7 +164,7 @@ backgroundSize: contain
 {
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_18;
   };
 }
 ```
@@ -156,7 +172,7 @@ backgroundSize: contain
 ---
 ---
 
-<Asciinema src="casts/test.cast" :playerProps="{speed: 2, rows: 18}" />
+<Asciinema src="casts/javascript.cast" :playerProps="{speed: 2}" />
 
 ---
 ---
@@ -169,7 +185,7 @@ backgroundSize: contain
 {
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_18;
   };
 }
 ```
@@ -181,26 +197,44 @@ backgroundSize: contain
 {
   languages.javascript = {
     enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_18;
   };
 
   languages.ruby =  {
     enable = true;
-    package = pkgs.ruby_3_1;
+    package = pkgs.ruby_3_3;
   };
 }
 ```
 ````
 
 ---
-transition: fade-out
 ---
 
-TODO ascii cinema cd projet + ruby --version
+<Asciinema src="casts/ruby.cast" :playerProps="{speed: 2}" />
+
+---
+---
+
+# Comment ca marche ?
+
+- Outils basé sur nix
+- Utilise les dépendances disponible sur nixpkgs
+
+---
+layout: image
+image: img/nix1.png
+backgroundSize: contain
+---
+
+---
+layout: image
+image: img/pure2.png
+backgroundSize: contain
+---
 
 
 ---
-transition: fade-out
 ---
 
 ````md magic-move {lines: true}
@@ -216,7 +250,7 @@ transition: fade-out
 
   languages.ruby =  {
     enable = true;
-    package = pkgs.ruby_3_1;
+    package = pkgs.ruby_3_3;
   };
 }
 ```
@@ -233,7 +267,7 @@ transition: fade-out
 
   languages.ruby =  {
     enable = true;
-    package = pkgs.ruby_3_1;
+    package = pkgs.ruby_3_3;
   };
 
   services.postgres = {
@@ -245,7 +279,97 @@ transition: fade-out
 ````
 
 ---
-transition: fade-out
 ---
 
-TODO ascii cinema
+<video controls src="./video/postgres.webm" />
+
+---
+---
+
+````md magic-move {lines: true}
+
+```nix {15-18}
+# devenv.nix
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  languages.javascript = {
+    enable = true;
+    package = pkgs.nodejs_20;
+  };
+
+  languages.ruby =  {
+    enable = true;
+    package = pkgs.ruby_3_3;
+  };
+
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+}
+```
+
+```nix {20-22}
+# devenv.nix
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  languages.javascript = {
+    enable = true;
+    package = pkgs.nodejs_20;
+  };
+
+  languages.ruby =  {
+    enable = true;
+    package = pkgs.ruby_3_3;
+  };
+
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+  processes.node-http-server = {
+    exec = "node server.js";
+  }
+}
+```
+
+````
+
+---
+---
+
+<video controls src="./video/node-server.webm" />
+
+---
+layout: two-cols-header
+---
+
+
+# Conclusion
+
+::left::
+## Avantages
+- Déclaratif
+- Beaucoup de langages (54) et services (32) supportés 
+- Isolé tout en restant sur sa machine
+- Compatible linux + mac
+- 100 % reproductible
+- Facile à utiliser
+- Rapide 
+
+::right::
+## Problématiques
+
+- Outil assez récent (réécriture en rust en mars 2024)
+- Communauté nix fragmentée
+- Peu nécessiter d'apprendre nix si on sort du cas d'usage 
+
+
+---
+layout: center
+---
+
+# Questions ?

@@ -1,11 +1,19 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Presentation devenv clermontech
 
-To start the slide show:
+https://docs.google.com/document/d/1AP0Ok4jNUw8dFdDdnH5U3YoUhTcTb6E2089Ivcsu8-0/edit?tab=t.0
 
-- `npm install`
-- `npm run dev`
-- visit <http://localhost:3030>
+## TODO
 
-Edit the [slides.md](./slides.md) to see the changes.
 
-Learn more about Slidev at the [documentation](https://sli.dev/).
+- [x] ascii cinema de tout les exemples
+- [x] explication rapide principe de nix
+- [ ] exemple ajout package
+- [x] exemple service
+- [x] exemple process
+- [ ] Problématique de l'outil + outil alternatif
+- [ ] conclusion + outils alternatif
+- [ ] pour aller plus loin
+- [ ] questions
+- [ ] couper fin des vidéos
+- [ ] refaire les premiers en videos
+- [ ] image de fond premiere slide
