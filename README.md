@@ -7,13 +7,12 @@ https://docs.google.com/document/d/1AP0Ok4jNUw8dFdDdnH5U3YoUhTcTb6E2089Ivcsu8-0/
 
 - [x] ascii cinema de tout les exemples
 - [x] explication rapide principe de nix
-- [ ] exemple ajout package
 - [x] exemple service
 - [x] exemple process
-- [ ] Problématique de l'outil + outil alternatif
-- [ ] conclusion + outils alternatif
-- [ ] pour aller plus loin
+- [x] Problématique de l'outil + outil alternatif
+- [x] conclusion + outils alternatif
+- [x] pour aller plus loin
 - [x] questions
 - [ ] couper fin des vidéos
 - [x] refaire les premiers en videos
-- [ ] image de fond premiere slide
+- [x] image de fond premiere slide

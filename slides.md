@@ -1,12 +1,8 @@
 ---
-# You can also start simply with 'default'
+layout: default
+#image: /img/devenv-dark-bg.svg
 theme: seriph
-addons:
-  - slidev-addon-asciinema
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
+#backgroundSize: contain
 title: Simplifiez la gestion de vos environnements de développement avec devenv !
 info: |
   ## Slidev Starter Template
@@ -15,20 +11,22 @@ info: |
   Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 # take snapshot for each slide in the overview
 overviewSnapshots: true
-
 ---
 
 # Simplifiez la gestion de vos environnements de développement avec devenv !
+<!-- <div class="mb-5 pb-5" > -->
+<img class="mx-auto h-[90%]" src="/img/devenv-dark-bg.svg" />
 
+---
+layout: center
+class: text-center
+---
 
 ---
 layout: center
@@ -214,6 +212,7 @@ layout: two-cols
 <video controls src="./video/ruby.webm" />
 
 ---
+layout: center
 ---
 
 # Comment ca marche ?
@@ -346,6 +345,11 @@ backgroundSize: contain
 ---
 ---
 
+<video controls src="./video/node-server.webm" />
+
+---
+---
+
 ````md magic-move {lines: true}
 
 ```nix
@@ -353,16 +357,7 @@ backgroundSize: contain
 { pkgs, lib, config, inputs, ... }:
 
 {
-  languages.javascript = {
-    enable = true;
-    package = pkgs.nodejs_20;
-  };
-
-  languages.ruby =  {
-    enable = true;
-    package = pkgs.ruby_3_3;
-  };
-
+  #...
   services.postgres = {
     enable = true;
     package = pkgs.postgresql_16;
@@ -374,20 +369,11 @@ backgroundSize: contain
 }
 ```
 
-```nix
+```nix {14-21}
 { pkgs, lib, config, inputs, ... }:
 
 {
-  languages.javascript = {
-    enable = true;
-    package = pkgs.nodejs_20;
-  };
-
-  languages.ruby =  {
-    enable = true;
-    package = pkgs.ruby_3_3;
-  };
-
+  #...
   services.postgres = {
     enable = true;
     package = pkgs.postgresql_16;
@@ -395,9 +381,16 @@ backgroundSize: contain
 
   processes.node-http-server = {
     exec = "node server.js";
-  }
+  };
 
-  
+  pre-commit = {
+    hooks = {
+      prettier = {
+        enable = true;
+        types_or = [ "javascript" ];
+      };
+    };
+  };
 }
 ```
 
@@ -408,7 +401,7 @@ backgroundSize: contain
 ---
 ---
 
-<video controls src="./video/node-server.webm" />
+<video controls src="./video/git-hooks.webm" />
 
 ---
 layout: two-cols
@@ -422,7 +415,6 @@ layout: two-cols
 - Beaucoup de langages (54) et services (32) supportés 
 - Isolé tout en restant sur sa machine
 - Compatible linux + mac
-- 100 % reproductible
 - Facile à utiliser
 - Rapide 
 
@@ -443,8 +435,29 @@ layout: two-cols
 
 </v-clicks>
 
+
 ---
 layout: center
 ---
 
 # Questions ?
+
+
+---
+layout: center
+---
+# Pour aller plus loin
+
+- https://devenv.sh/
+- https://github.com/cachix/devenv/tree/main/examples
+- discord devenv
+- https://zero-to-nix.com
+- https://devenv.sh/containers/
+
+---
+layout: center
+---
+# Outils alternatif
+
+- https://www.jetify.com/devbox
+- https://flox.dev/
