@@ -343,62 +343,6 @@ backgroundSize: contain
 <video controls src="./video/node-server.webm" />
 
 ---
----
-
-````md magic-move {lines: true}
-
-```nix
-# devenv.nix
-{ pkgs, lib, config, inputs, ... }:
-
-{
-  #...
-  services.postgres = {
-    enable = true;
-    package = pkgs.postgresql_16;
-  };
-
-  processes.node-http-server = {
-    exec = "node server.js";
-  }
-}
-```
-
-```nix {14-21}
-{ pkgs, lib, config, inputs, ... }:
-
-{
-  #...
-  services.postgres = {
-    enable = true;
-    package = pkgs.postgresql_16;
-  };
-
-  processes.node-http-server = {
-    exec = "node server.js";
-  };
-
-  pre-commit = {
-    hooks = {
-      prettier = {
-        enable = true;
-        types_or = [ "javascript" ];
-      };
-    };
-  };
-}
-```
-
-
-
-````
-
----
----
-
-<video controls src="./video/git-hooks.webm" />
-
----
 layout: two-cols
 ---
 
@@ -456,3 +400,59 @@ layout: center
 
 - https://www.jetify.com/devbox
 - https://flox.dev/
+
+---
+---
+
+````md magic-move {lines: true}
+
+```nix
+# devenv.nix
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  #...
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+  processes.node-http-server = {
+    exec = "node server.js";
+  }
+}
+```
+
+```nix {14-21}
+{ pkgs, lib, config, inputs, ... }:
+
+{
+  #...
+  services.postgres = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
+
+  processes.node-http-server = {
+    exec = "node server.js";
+  };
+
+  pre-commit = {
+    hooks = {
+      prettier = {
+        enable = true;
+        types_or = [ "javascript" ];
+      };
+    };
+  };
+}
+```
+
+
+
+````
+
+---
+---
+
+<video controls src="./video/git-hooks.webm" />
